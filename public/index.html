@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Простите ✨</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Прелоадер с печатающимся текстом (3 фразы) -->
+    <div id="preloader">
+        <div class="loader-text" id="typing-text"></div>
+    </div>
+
+    <!-- Основной контент (изначально скрыт) -->
+    <div id="content" style="display: none;">
+        <!-- Анимированные цветы и птички (фон) -->
+        <div class="floating-elements">
+            <i class="fas fa-feather-alt bird"></i>
+            <i class="fas fa-feather-alt bird"></i>
+            <i class="fas fa-seedling flower"></i>
+            <i class="fas fa-seedling flower"></i>
+            <i class="fas fa-dove bird"></i>
+        </div>
+
+        <!-- Заголовок над кнопками -->
+        <div class="header-text">Выберите один из вариантов</div>
+
+        <!-- Кнопки -->
+        <div class="buttons-container">
+            <button class="romantic-btn" id="btn-forgive">ПРОСТИТЬ</button>
+            <button class="romantic-btn" id="btn-not-forgive">НЕ ПРОЩАТЬ</button>
+            <button class="romantic-btn" id="btn-angry-forgive">НЕМНОГО ПОЗЛЮСЬ И ПРОЩУ</button>
+            <button class="romantic-btn" id="btn-ignore">ИГНОРИРОВАТЬ НАВСЕГДА</button>
+        </div>
+
+        <!-- Подвал с подписью и датой/временем -->
+        <div class="footer">
+            <p>разработка от Alexbrobeats</p>
+            <p id="current-datetime"></p>
+        </div>
+
+        <!-- Слой для эффектов (дождь, взрыв, пепел) -->
+        <div id="effect-layer"></div>
+
+        <!-- Модальное окно для сообщений -->
+        <div id="message-modal" class="modal">
+            <div class="modal-content" id="modal-message"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

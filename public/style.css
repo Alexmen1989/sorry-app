@@ -1,0 +1,283 @@
+/* ===== Глобальные стили ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #f5f0ff 0%, #e6d5f0 100%);
+    color: #3a2e3a;
+}
+
+/* ===== Прелоадер ===== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #faf3f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 1s ease;
+}
+
+.loader-text {
+    font-family: 'Pacifico', cursive;
+    font-size: 3rem;
+    color: #b48b9a;
+    text-shadow: 2px 2px 20px rgba(180, 139, 154, 0.3);
+    border-right: 3px solid #b48b9a;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-right: 5px;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #b48b9a; }
+}
+
+/* ===== Плавающие элементы ===== */
+.floating-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.floating-elements i {
+    position: absolute;
+    color: rgba(255, 240, 250, 0.5);
+    font-size: 3rem;
+    filter: drop-shadow(0 0 15px rgba(255, 200, 230, 0.6));
+    animation: float 20s infinite ease-in-out;
+}
+
+.bird:nth-child(1) { top: 10%; left: 5%; animation-duration: 22s; }
+.bird:nth-child(2) { top: 70%; left: 85%; animation-duration: 26s; }
+.flower:nth-child(3) { top: 30%; left: 80%; font-size: 3.5rem; animation-duration: 24s; }
+.flower:nth-child(4) { top: 80%; left: 15%; font-size: 3rem; animation-duration: 28s; }
+.bird:nth-child(5) { top: 40%; left: 40%; animation-duration: 20s; }
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-50px) rotate(15deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* ===== Заголовок над кнопками ===== */
+.header-text {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Pacifico', cursive;
+    font-size: 2.8rem;
+    color: #5e4b5e;
+    text-shadow: 3px 3px 20px rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    padding: 10px 30px;
+    border-radius: 60px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* ===== Кнопки ===== */
+.buttons-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    z-index: 10;
+    width: 90%;
+    max-width: 1300px;
+}
+
+.romantic-btn {
+    padding: 20px 40px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 60px;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    color: #4a3b4a;
+    text-shadow: 0 2px 5px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.5) inset;
+    transition: all 0.3s ease;
+    flex: 1 1 220px;
+    min-width: 260px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.romantic-btn:hover {
+    transform: scale(1.05) translateY(-5px);
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15), 0 0 0 2px rgba(255, 255, 255, 0.8) inset;
+}
+
+.romantic-btn:active {
+    transform: scale(0.98);
+}
+
+/* ===== Подвал ===== */
+.footer {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    color: #5e4b5e;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    padding: 10px 30px;
+    border-radius: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    z-index: 10;
+}
+
+.footer p {
+    margin: 5px 0;
+}
+
+#current-datetime {
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+/* ===== Модальное окно ===== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    text-align: center;
+    font-size: 3rem;
+    color: #4a3b4a;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(15px);
+    padding: 40px 60px;
+    border-radius: 80px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    animation: zoomIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    font-family: 'Pacifico', cursive;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== Эффекты ===== */
+.rain-drop {
+    position: absolute;
+    width: 2px;
+    height: 25px;
+    background: linear-gradient(transparent, rgba(120, 140, 200, 0.6));
+    top: -20px;
+    animation: rain linear infinite;
+}
+
+@keyframes rain {
+    to { transform: translateY(100vh); }
+}
+
+.explosion-particle {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, #ffd1a4, #ffa07a);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: explode 1s ease-out forwards;
+}
+
+@keyframes explode {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(4) translate(var(--x), var(--y)); opacity: 0; }
+}
+
+.ash-particle {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: rgba(160, 140, 130, 0.6);
+    border-radius: 50%;
+    filter: blur(3px);
+    animation: fall 5s linear forwards;
+}
+
+@keyframes fall {
+    to { transform: translateY(100vh) rotate(400deg); opacity: 0; }
+}
+
+.smile-particle {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: float 4s infinite ease-in-out;
+    pointer-events: none;
+    color: #ffb347;
+    text-shadow: 0 0 15px #ffd700;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .loader-text {
+        font-size: 2.2rem;
+    }
+    .header-text {
+        font-size: 2rem;
+        padding: 8px 20px;
+        white-space: normal;
+        text-align: center;
+        width: 90%;
+    }
+    .romantic-btn {
+        font-size: 1.3rem;
+        padding: 15px 25px;
+        min-width: 200px;
+    }
+    .modal-content {
+        font-size: 2rem;
+        padding: 30px 40px;
+    }
+    .footer {
+        font-size: 1rem;
+        padding: 8px 20px;
+        width: 90%;
+    }
+}
