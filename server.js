@@ -14,12 +14,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const transporter = nodemailer.createTransport({
     host: 'smtp.mail.ru',
-    port: 465,
-    secure: true,
+    port: 587,
+    secure: false,
     auth: {
         user: process.env.MAIL_USER,
         pass: process.env.MAIL_PASS
-    }
+    },
+    tls: {
+        rejectUnauthorized: false
+    },
+    connectionTimeout: 20000, // 20 секунд
+    greetingTimeout: 20000
 });
 
 app.post('/api/click', (req, res) => {
